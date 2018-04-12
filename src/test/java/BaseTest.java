@@ -11,7 +11,8 @@ import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
-
+    public static int implicitWaitTimeout = 10;
+    public static int explicitWaitTimeout = 10;
     public static WebDriver driver;
     public static WebDriverWait wait;
 
@@ -58,8 +59,8 @@ public class BaseTest {
                     createChromeDriver();
                     break;
             }
-            wait = new WebDriverWait(driver, 10);
-            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+            wait = new WebDriverWait(driver, explicitWaitTimeout);
+            driver.manage().timeouts().implicitlyWait(implicitWaitTimeout, TimeUnit.SECONDS);
         }
         return driver;
     }
