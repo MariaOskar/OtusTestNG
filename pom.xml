@@ -9,6 +9,67 @@
     <version>1.0-SNAPSHOT</version>
 
 
+
+    <properties>
+        <webdriver>chrome</webdriver>
+        <webdriver.gecko.driver>C:\Users\Мария\IdeaProjects\OtusMaven\libs\geckodriver.exe</webdriver.gecko.driver>
+        <webdriver.opera.driver>C:\Users\Мария\IdeaProjects\OtusMaven\libs\operadriver.exe</webdriver.opera.driver>
+        <webdriver.chrome.driver>C:\Users\Мария\IdeaProjects\OtusMaven\libs\chromedriver.exe</webdriver.chrome.driver>
+        <webdriver.edge.driver>C:\Users\Мария\IdeaProjects\OtusMaven\libs\MicrosoftWebDriver.exe</webdriver.edge.driver>
+        <webdriver.firefox.bin>D:\MozillaFirefox\firefox.exe</webdriver.firefox.bin>
+    </properties>
+
+
+    <profiles>
+        <profile>
+            <id>win</id>
+            <activation>
+                <os>
+                    <family>Windows</family>
+                </os>
+            </activation>
+            <properties>
+                <webdriver>opera</webdriver>
+                <webdriver.gecko.driver>C:\Users\Мария\IdeaProjects\OtusMaven\libs\geckodriver.exe</webdriver.gecko.driver>
+                <webdriver.opera.driver>C:\Users\Мария\IdeaProjects\OtusMaven\libs\operadriver.exe</webdriver.opera.driver>
+                <webdriver.chrome.driver>C:\Users\Мария\IdeaProjects\OtusMaven\libs\chromedriver.exe</webdriver.chrome.driver>
+                <webdriver.edge.driver>C:\Users\Мария\IdeaProjects\OtusMaven\libs\MicrosoftWebDriver.exe</webdriver.edge.driver>
+                <webdriver.firefox.bin>D:\MozillaFirefox\firefox.exe</webdriver.firefox.bin>
+            </properties>
+        </profile>
+        <profile>
+            <id>mac</id>
+            <activation>
+                <os>
+                    <family>Mac</family>
+                </os>
+            </activation>
+            <properties>
+                <webdriver>chrome</webdriver>
+                <webdriver.gecko.driver>/home/oskar/projects/OtusMaven/libs/geckodriver</webdriver.gecko.driver>
+                <webdriver.opera.driver>/home/oskar/projects/OtusMaven/libs/operadriver</webdriver.opera.driver>
+                <webdriver.chrome.driver>/home/oskar/projects/OtusMaven/libs/chromedriver</webdriver.chrome.driver>
+                <webdriver.firefox.bin>/usr/bin/firefox</webdriver.firefox.bin>
+            </properties>
+        </profile>
+        <profile>
+            <id>linux</id>
+            <activation>
+                <os>
+                    <family>Linux</family>
+                </os>
+            </activation>
+            <properties>
+                <webdriver>chrome</webdriver>
+                <webdriver.gecko.driver>/mnt/flash_drive/libs/geckodriver</webdriver.gecko.driver>
+                <webdriver.opera.driver>/mnt/flash_drive/libs/operadriver</webdriver.opera.driver>
+                <webdriver.chrome.driver>/mnt/flash_drive/libs/chromedriver</webdriver.chrome.driver>
+                <webdriver.firefox.bin>/usr/bin/firefox</webdriver.firefox.bin>
+            </properties>
+        </profile>
+
+    </profiles>
+
     <dependencies>
 
         <dependency>
@@ -23,6 +84,13 @@
             <version>6.14.2</version>
             <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.20</version>
+            <scope>provided</scope>
+        </dependency>
 
     </dependencies>
 
@@ -35,13 +103,16 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.21.0</version>
                 <configuration>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>src\test\resources\testng.xml</suiteXmlFile>
+                    </suiteXmlFiles>
                     <systemPropertyVariables>
-                        <webdriver>chrome</webdriver>
-                        <webdriver.gecko.driver>C:\Users\Мария\IdeaProjects\OtusMaven\libs\geckodriver.exe</webdriver.gecko.driver>
-                        <webdriver.opera.driver>C:\Users\Мария\IdeaProjects\OtusMaven\libs\operadriver.exe</webdriver.opera.driver>
-                        <webdriver.chrome.driver>C:\Users\Мария\IdeaProjects\OtusMaven\libs\chromedriver.exe</webdriver.chrome.driver>
-                        <webdriver.edge.driver>C:\Users\Мария\IdeaProjects\OtusMaven\libs\MicrosoftWebDriver.exe</webdriver.edge.driver>
-                        <webdriver.firefox.bin>D:\MozillaFirefox\firefox.exe</webdriver.firefox.bin>
+                        <webdriver>${webdriver}</webdriver>
+                        <webdriver.gecko.driver>${webdriver.gecko.driver}</webdriver.gecko.driver>
+                        <webdriver.opera.driver>${webdriver.opera.driver}</webdriver.opera.driver>
+                        <webdriver.chrome.driver>${webdriver.chrome.driver}</webdriver.chrome.driver>
+                        <webdriver.edge.driver>${webdriver.edge.driver}</webdriver.edge.driver>
+                        <webdriver.firefox.bin>${webdriver.firefox.bin}</webdriver.firefox.bin>
                         <buildDirectory>${project.build.directory}</buildDirectory>
                     </systemPropertyVariables>
                 </configuration>
@@ -51,12 +122,12 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
+                    <source>8</source>
+                    <target>8</target>
                 </configuration>
             </plugin>
 
         </plugins>
     </build>
-    
+
 </project>

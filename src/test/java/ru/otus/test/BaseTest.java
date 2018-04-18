@@ -1,3 +1,5 @@
+package ru.otus.test;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -67,7 +69,7 @@ public class BaseTest {
 
     @BeforeClass
     public void prepare(){
-        driver = getDriver();
+        getDriver();
     }
 
     @AfterClass
