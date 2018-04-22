@@ -1,16 +1,15 @@
-package ru.otus.test;
+package ru.otus.blazedemo.test;
 
-import ru.otus.model.OrderParams;
+import ru.otus.blazedemo.model.OrderParams;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.Test;
-import ru.otus.pages.ChoicePage;
-import ru.otus.pages.ConfirmationPage;
-import ru.otus.pages.PuchasePage;
-import ru.otus.pages.ReservePage;
-import ru.otus.util.TestHelper;
-import ru.otus.util.builder.FixedOrderParamsBuilder;
-import ru.otus.util.builder.OrderParamsBuilder;
-import ru.otus.util.builder.RandomOrderParamsBuilder;
+import ru.otus.blazedemo.pages.ChoicePage;
+import ru.otus.blazedemo.pages.ConfirmationPage;
+import ru.otus.blazedemo.pages.PuchasePage;
+import ru.otus.blazedemo.pages.ReservePage;
+import ru.otus.utils.TestHelper;
+import ru.otus.blazedemo.util.builder.OrderParamsBuilder;
+import ru.otus.blazedemo.util.builder.RandomOrderParamsBuilder;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

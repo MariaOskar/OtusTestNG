@@ -1,7 +1,6 @@
-package ru.otus.model;
+package ru.otus.blazedemo.model;
 
 import lombok.Data;
-import ru.otus.util.TestHelper;
 
 public @Data class OrderParams {
     public String name;

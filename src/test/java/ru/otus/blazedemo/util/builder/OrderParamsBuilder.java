@@ -1,6 +1,6 @@
-package ru.otus.util.builder;
+package ru.otus.blazedemo.util.builder;
 
-import ru.otus.model.OrderParams;
+import ru.otus.blazedemo.model.OrderParams;
 
 abstract public class OrderParamsBuilder {
 

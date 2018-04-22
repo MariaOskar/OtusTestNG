@@ -1,4 +1,4 @@
-package ru.otus.test;
+package ru.otus.blazedemo.test;
 
 import org.testng.annotations.Test;
 

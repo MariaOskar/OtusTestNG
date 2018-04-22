@@ -3,12 +3,12 @@
 <suite name="Otus" verbose="1" >
     <test name="BlazeDemo">
         <classes>
-            <class name="ru.otus.test.FirstTest"></class>
+            <class name="ru.otus.blazedemo.test.FirstTest"></class>
         </classes>
     </test>
     <test name="maven_check">
         <classes>
-            <class name="ru.otus.test.SecondTest"></class>
+            <class name="ru.otus.blazedemo.test.SecondTest"></class>
         </classes>
     </test>
 </suite>

@@ -1,11 +1,11 @@
-package ru.otus.pages;
+package ru.otus.blazedemo.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import ru.otus.util.TestHelper;
+import ru.otus.utils.TestHelper;
 
 import java.util.List;
 import java.util.stream.Collectors;

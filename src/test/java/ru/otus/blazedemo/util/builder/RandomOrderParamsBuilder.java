@@ -1,8 +1,7 @@
-package ru.otus.util.builder;
+package ru.otus.blazedemo.util.builder;
 
-import ru.otus.model.OrderParams;
-import ru.otus.util.Generator;
-import ru.otus.util.TestHelper;
+import ru.otus.blazedemo.util.Generator;
+import ru.otus.utils.TestHelper;
 
 public class RandomOrderParamsBuilder extends OrderParamsBuilder{
 

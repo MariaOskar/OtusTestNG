@@ -1,4 +1,4 @@
-package ru.otus.pages;
+package ru.otus.blazedemo.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

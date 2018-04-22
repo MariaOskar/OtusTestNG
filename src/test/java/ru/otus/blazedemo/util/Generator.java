@@ -1,4 +1,7 @@
-package ru.otus.util;
+package ru.otus.blazedemo.util;
+
+import ru.otus.utils.DataHelper;
+import ru.otus.utils.TestHelper;
 
 public class Generator {
 

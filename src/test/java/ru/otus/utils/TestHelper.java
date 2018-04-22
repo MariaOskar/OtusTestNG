@@ -1,4 +1,4 @@
-package ru.otus.util;
+package ru.otus.utils;
 
 public class TestHelper {
 

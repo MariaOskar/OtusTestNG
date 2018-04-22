@@ -1,4 +1,4 @@
-package ru.otus.test;
+package ru.otus.blazedemo.test;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

@@ -1,4 +1,4 @@
-package ru.otus.util.builder;
+package ru.otus.blazedemo.util.builder;
 
 public class FixedOrderParamsBuilder extends OrderParamsBuilder{
     @Override
