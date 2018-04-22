@@ -1,5 +1,6 @@
 package ru.otus.blazedemo.test;
 
+import ru.otus.BaseTest;
 import ru.otus.blazedemo.model.OrderParams;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.Test;
