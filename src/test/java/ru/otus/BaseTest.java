@@ -12,7 +12,7 @@ import org.testng.annotations.BeforeClass;
 
 import java.util.concurrent.TimeUnit;
 
-public class BaseTest {
+abstract public class BaseTest {
     public static int implicitWaitTimeout = 10;
     public static int explicitWaitTimeout = 10;
     public static WebDriver driver;
