@@ -2,6 +2,7 @@ package ru.otus.automationpractice.pages;
 
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import ru.otus.automationpractice.components.TopMenuBlock;
 
@@ -30,4 +31,14 @@ public class IndexPage  {
         topMenu.focusOnFirstButton();
     }
 
+    public WebElement getFirstCategoryLinkElement() { return topMenu.getFirstCategoryLinkElement();}
+
+    public String getFirstCategoryLinkText(){ return topMenu.getFirstCategoryLinkText();}
+
+    public CategoryPage clickOnFirstCategoryLinkElement(){
+        topMenu.clickOnFirstCategoryLinkElement();
+        return new CategoryPage(driver);
+    }
+
 }
+

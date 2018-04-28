@@ -14,6 +14,7 @@
         <webdriver>chrome</webdriver>
         <webdriver.gecko.driver>C:\Users\Мария\IdeaProjects\OtusMaven\libs\geckodriver.exe</webdriver.gecko.driver>
         <webdriver.opera.driver>C:\Users\Мария\IdeaProjects\OtusMaven\libs\operadriver.exe</webdriver.opera.driver>
+        <webdriver.chrome.headless>off</webdriver.chrome.headless>
         <webdriver.chrome.driver>C:\Users\Мария\IdeaProjects\OtusMaven\libs\chromedriver.exe</webdriver.chrome.driver>
         <webdriver.edge.driver>C:\Users\Мария\IdeaProjects\OtusMaven\libs\MicrosoftWebDriver.exe</webdriver.edge.driver>
         <webdriver.firefox.bin>D:\MozillaFirefox\firefox.exe</webdriver.firefox.bin>
@@ -29,10 +30,11 @@
                 </os>
             </activation>
             <properties>
-                <webdriver>opera</webdriver>
+                <webdriver>chrome</webdriver>
                 <webdriver.gecko.driver>C:\Users\Мария\IdeaProjects\OtusMaven\libs\geckodriver.exe</webdriver.gecko.driver>
                 <webdriver.opera.driver>C:\Users\Мария\IdeaProjects\OtusMaven\libs\operadriver.exe</webdriver.opera.driver>
                 <webdriver.chrome.driver>C:\Users\Мария\IdeaProjects\OtusMaven\libs\chromedriver.exe</webdriver.chrome.driver>
+                <webdriver.chrome.headless>on</webdriver.chrome.headless>
                 <webdriver.edge.driver>C:\Users\Мария\IdeaProjects\OtusMaven\libs\MicrosoftWebDriver.exe</webdriver.edge.driver>
                 <webdriver.firefox.bin>D:\MozillaFirefox\firefox.exe</webdriver.firefox.bin>
             </properties>
@@ -49,6 +51,7 @@
                 <webdriver.gecko.driver>/home/oskar/projects/OtusMaven/libs/geckodriver</webdriver.gecko.driver>
                 <webdriver.opera.driver>/home/oskar/projects/OtusMaven/libs/operadriver</webdriver.opera.driver>
                 <webdriver.chrome.driver>/home/oskar/projects/OtusMaven/libs/chromedriver</webdriver.chrome.driver>
+                <webdriver.chrome.headless>off</webdriver.chrome.headless>
                 <webdriver.firefox.bin>/usr/bin/firefox</webdriver.firefox.bin>
             </properties>
         </profile>
@@ -64,6 +67,7 @@
                 <webdriver.gecko.driver>/mnt/flash_drive/libs/geckodriver</webdriver.gecko.driver>
                 <webdriver.opera.driver>/mnt/flash_drive/libs/operadriver</webdriver.opera.driver>
                 <webdriver.chrome.driver>/mnt/flash_drive/libs/chromedriver</webdriver.chrome.driver>
+                <webdriver.chrome.headless>off</webdriver.chrome.headless>
                 <webdriver.firefox.bin>/usr/bin/firefox</webdriver.firefox.bin>
             </properties>
         </profile>
@@ -111,6 +115,7 @@
                         <webdriver.gecko.driver>${webdriver.gecko.driver}</webdriver.gecko.driver>
                         <webdriver.opera.driver>${webdriver.opera.driver}</webdriver.opera.driver>
                         <webdriver.chrome.driver>${webdriver.chrome.driver}</webdriver.chrome.driver>
+                        <webdriver.chrome.headless>${webdriver.chrome.headless}</webdriver.chrome.headless>
                         <webdriver.edge.driver>${webdriver.edge.driver}</webdriver.edge.driver>
                         <webdriver.firefox.bin>${webdriver.firefox.bin}</webdriver.firefox.bin>
                         <buildDirectory>${project.build.directory}</buildDirectory>
