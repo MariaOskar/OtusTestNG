@@ -14,10 +14,10 @@ public class CategoryPage {
 
     private TopMenuBlock topMenu;
 
-    @FindBy(css = "#center_column > div.content_scene_cat > div > div > span.category-name")
+    @FindBy(css = "span.category-name")
     private WebElement categoryTitleElement;
 
-    @FindBy(css = "#center_column > ul.product_list > li > div.product-container")
+    @FindBy(css = "ul.product_list div.product-container")
     private List<WebElement> products;
 
     public CategoryPage(WebDriver driver) {

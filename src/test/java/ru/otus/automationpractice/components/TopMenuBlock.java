@@ -7,10 +7,10 @@ import ru.otus.IComponent;
 
 public class TopMenuBlock implements IComponent {
     private WebDriver driver;
-    private static final int PAUSE = 500;
+    private static final int PAUSE = 1500;
     private static final By ROOT_ELEMENT = By.id("block_top_menu");
     private static final By FIRST_BUTTON_ELEMENT = By.cssSelector("ul.sf-menu li:nth-of-type(1) a");
-    private static final By FIRST_CATEGORY_LINK = By.cssSelector("ul.sf-menu > li > ul > li:nth-child(1) > ul > li:nth-child(1) > a");
+    private static final By FIRST_CATEGORY_LINK = By.xpath("../ul/li[1]/ul/li[1]/a");
 
     public TopMenuBlock(WebDriver driver) {
         this.driver = driver;
@@ -25,7 +25,7 @@ public class TopMenuBlock implements IComponent {
     }
 
     public WebElement getFirstCategoryLinkElement(){
-        return driver.findElement(FIRST_CATEGORY_LINK);
+        return getFirstButtonElement().findElement(FIRST_CATEGORY_LINK);
     }
 
     public Dimension getFirstButtonSize (){
@@ -58,7 +58,7 @@ public class TopMenuBlock implements IComponent {
     public void clickOnFirstCategoryLinkElement(){
         getFirstCategoryLinkElement().click();
     }
-    
+
 
 
 
