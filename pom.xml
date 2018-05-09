@@ -30,7 +30,7 @@
                 </os>
             </activation>
             <properties>
-                <webdriver>chrome</webdriver>
+                <webdriver>remote-chrome</webdriver>
                 <webdriver.gecko.driver>libs\geckodriver.exe</webdriver.gecko.driver>
                 <webdriver.opera.driver>libs\operadriver.exe</webdriver.opera.driver>
                 <webdriver.chrome.driver>libs\chromedriver.exe</webdriver.chrome.driver>
@@ -96,6 +96,27 @@
             <scope>provided</scope>
         </dependency>
 
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>2.3.1</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-junit</artifactId>
+            <version>2.3.1</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
 
