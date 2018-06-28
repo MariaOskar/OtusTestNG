@@ -30,7 +30,7 @@
                 </os>
             </activation>
             <properties>
-                <webdriver>remote-chrome</webdriver>
+                <webdriver>chrome</webdriver>
                 <webdriver.gecko.driver>libs\geckodriver.exe</webdriver.gecko.driver>
                 <webdriver.opera.driver>libs\operadriver.exe</webdriver.opera.driver>
                 <webdriver.chrome.driver>libs\chromedriver.exe</webdriver.chrome.driver>
