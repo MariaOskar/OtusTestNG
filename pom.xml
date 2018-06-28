@@ -18,6 +18,8 @@
         <webdriver.chrome.driver>libs\chromedriver.exe</webdriver.chrome.driver>
         <webdriver.edge.driver>libs\MicrosoftWebDriver.exe</webdriver.edge.driver>
         <webdriver.firefox.bin>D:\MozillaFirefox\firefox.exe</webdriver.firefox.bin>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
 
 
@@ -153,6 +155,13 @@
                 </configuration>
             </plugin>
 
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
