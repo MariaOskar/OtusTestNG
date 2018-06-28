@@ -24,7 +24,7 @@ import static org.testng.Assert.assertTrue;
 
 public class FirstTest extends BaseTest {
     private float maxPrice = 300;
-    public int validDifference = 10;
+    public int validDifference = 60;
 
     @Test
     public void test() throws ParseException {
