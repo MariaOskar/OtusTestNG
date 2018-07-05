@@ -1,5 +1,6 @@
 package ru.otus.blazedemo.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -41,6 +42,7 @@ public class ReservePage {
         flight = flights.get(TestHelper.random(0, flights.size() - 1));
     }
 
+    @Step("Фильтруем рейсы по цене и выбираем один из них")
     public void selectFilteredFlight(float maxPrice){
         List<WebElement> filteredFlights = flights
                 .stream()
@@ -54,22 +56,25 @@ public class ReservePage {
         }
     }
 
-
+    @Step("Получаем номер рейса")
     public String getFlightNum(){
        if (flight!= null) return flight.findElement(By.cssSelector("input[name=flight]")).getAttribute("value");
        return null;
     }
 
+    @Step("Получаем цену рейса")
     public float getPrice(){
         if (flight!=null) return Float.parseFloat(flight.findElement(By.cssSelector("input[name=price]")).getAttribute("value"));
         return 0;
     }
 
+    @Step("Получаем название авиакомпании")
     public String getAirlineCo(){
         if (flight!=null) return flight.findElement(By.cssSelector("input[name=airline]")).getAttribute("value");
         return null;
     }
 
+    @Step("Подтверждаем выбор рейса и переходим на страницу оформления заказа")
     public void submitFlight(){
         if (flight!=null) flight.findElement(By.cssSelector("td input[type=submit]")).click();
     }

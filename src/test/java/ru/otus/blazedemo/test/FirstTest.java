@@ -1,5 +1,7 @@
 package ru.otus.blazedemo.test;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Step;
 import ru.otus.BaseTest;
 import ru.otus.blazedemo.model.OrderParams;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -26,7 +28,8 @@ public class FirstTest extends BaseTest {
     private float maxPrice = 300;
     public int validDifference = 100;
 
-    @Test
+    @Test(description = "Оформление заказа")
+    @Description("Поиск рейса и оформление заказа на blazedemo.com")
     public void test() throws ParseException {
 
         getDriver().get("http://blazedemo.com/");
@@ -124,6 +127,7 @@ public class FirstTest extends BaseTest {
 
     }
 
+    @Step("Генерируем параметры заказа")
     private OrderParams buildOrderParams(OrderParamsBuilder builder){
         builder.createOrderParams();
         builder.build();

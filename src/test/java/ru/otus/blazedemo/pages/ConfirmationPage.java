@@ -1,5 +1,6 @@
 package ru.otus.blazedemo.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -27,30 +28,37 @@ public class ConfirmationPage {
         PageFactory.initElements(driver, this);
     }
 
+    @Step("Получение идентификатора заказа")
     public String getIdText (){
         return id.getText();
     }
 
+    @Step("Получение статуса заказа")
     public String getStatusText(){
         return status.getText();
     }
 
+    @Step("Получение валюты")
     public String getAmountText(){
         return amount.getText();
     }
 
+    @Step("Получение номера карты")
     public String getCardNumberVal(){
         return cardNumber.getText();
     }
 
+    @Step("Получение даты окончания действия карты")
     public String getExpirationText(){
         return expiration.getText();
     }
 
+    @Step("Получение кода авторизации")
     public String getAuthCodeText(){
         return authCode.getText();
     }
 
+    @Step("Получение даты оформления заказа")
     public String getOrderDateValue(){
         return orderDate.getText();
     }

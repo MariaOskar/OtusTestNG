@@ -1,5 +1,6 @@
 package ru.otus.automationpractice.test;
 
+import io.qameta.allure.Description;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.Test;
 import ru.otus.BaseTest;
@@ -11,7 +12,8 @@ import static org.testng.Assert.assertTrue;
 
 public class SecondTest extends BaseTest {
 
-    @Test
+    @Test(description = "Переход на страницу категории")
+    @Description("Переход на страницу категории из верхнего меню")
     public void test() {
         IndexPage page = new IndexPage(getDriver());
 

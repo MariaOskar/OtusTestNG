@@ -1,5 +1,6 @@
 package ru.otus.automationpractice.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -26,10 +27,12 @@ public class CategoryPage {
         topMenu = new TopMenuBlock(driver);
     }
 
+    @Step("Получаем название категории")
     public String getCategoryTitle(){
         return categoryTitleElement.getText();
 }
 
+    @Step("Получаем количество продуктов на странице")
     public int getProductCount(){
         return products.size();
     }

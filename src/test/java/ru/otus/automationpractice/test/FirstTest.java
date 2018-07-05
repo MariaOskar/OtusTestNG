@@ -1,5 +1,6 @@
 package ru.otus.automationpractice.test;
 
+import io.qameta.allure.Description;
 import org.openqa.selenium.Dimension;
 import org.testng.annotations.Test;
 import ru.otus.BaseTest;
@@ -10,7 +11,8 @@ import static org.testng.Assert.assertTrue;
 public class FirstTest extends BaseTest {
     String colorPattern = "rgba?\\(51, 51, 51(, 1)?\\)";
 
-    @Test
+    @Test(description = "Проверка стилей меню")
+    @Description("Проверка стилей пункта меню при наведении курсора")
     public void test() {
         IndexPage page = new IndexPage(getDriver());
 

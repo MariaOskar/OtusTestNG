@@ -1,5 +1,6 @@
 package ru.otus.blazedemo.pages;
 
+import io.qameta.allure.Step;
 import ru.otus.blazedemo.model.OrderParams;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -53,35 +54,43 @@ public class PuchasePage {
         cardTypeSelect = new Select(cardTypeElement);
     }
 
+    @Step("Получаем номер рейса")
     public String getFlightNumberText(){
         return flightNumberP.getText();
     }
 
+    @Step("Получаем название авиакомпании")
     public String getAirlineText(){
         return airlineP.getText();
     }
 
+    @Step("Получаем цену")
     public String getPriceText(){
         return priceP.getText();
     }
 
+    @Step("Получаем значение налогов")
     public float getTaxes(){
         return Float.parseFloat(taxesP.getText().replace("Arbitrary Fees and Taxes: ", ""));
     }
 
+    @Step("Получаем общую стоимость")
     public float getTotalCost() {
         return Float.parseFloat(totalCostP.getText().replace("Total Cost: ", ""));
     }
 
+    @Step("Получаем случайное значение типа банковской карты")
     public String getCardTypeValueRandom(){
         List<WebElement> cardTypeOptions = cardTypeSelect.getOptions();
        return cardTypeOptions.get(TestHelper.random(0, cardTypeOptions.size() - 1)).getAttribute("value");
     }
 
+    @Step("Выбираем тип банковской карты")
     public void selectCardType(String cardTypeValue){
         cardTypeSelect.selectByValue(cardTypeValue);
     }
 
+    @Step("Заполняем форму заказа")
     public void fillForm(OrderParams orderParams){
         inputName.clear();
         inputName.sendKeys(orderParams.getName());
@@ -103,6 +112,7 @@ public class PuchasePage {
         nameOnCard.sendKeys(orderParams.getNameOnCard());
     }
 
+        @Step("Отправляем заказ")
         public void submit(){
                 submit.click();
         }
