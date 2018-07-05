@@ -24,14 +24,14 @@ import static org.testng.Assert.assertTrue;
 
 public class FirstTest extends BaseTest {
     private float maxPrice = 300;
-    public int validDifference = 60;
+    public int validDifference = 100;
 
     @Test
     public void test() throws ParseException {
 
-        driver.get("http://blazedemo.com/");
+        getDriver().get("http://blazedemo.com/");
 
-        ChoicePage choicePage = new ChoicePage(driver);
+        ChoicePage choicePage = new ChoicePage(getDriver());
 
         String fromPortValue = choicePage.getRandomFromOption();
         choicePage.selectFrom(fromPortValue);
@@ -42,11 +42,11 @@ public class FirstTest extends BaseTest {
         choicePage.submit();
 
         //данный wait предназначен только для браузера Microsoft EDGE, который не дожидается загрузки страницы
-        wait.until(ExpectedConditions.urlContains("reserve.php"));
+        getWait().until(ExpectedConditions.urlContains("reserve.php"));
 
-        assertEquals("http://blazedemo.com/reserve.php", driver.getCurrentUrl());
+        assertEquals("http://blazedemo.com/reserve.php", getDriver().getCurrentUrl());
 
-        ReservePage reservePage = new ReservePage(driver);
+        ReservePage reservePage = new ReservePage(getDriver());
 
         assertEquals(reservePage.getFromPortValue(), fromPortValue);
         assertEquals(reservePage.getToPortValue(), toPortValue);
@@ -62,11 +62,11 @@ public class FirstTest extends BaseTest {
         reservePage.submitFlight();
 
         //данный wait предназначен только для браузера Microsoft EDGE, который не дожидается загрузки страницы
-        wait.until(ExpectedConditions.urlContains("purchase.php"));
+        getWait().until(ExpectedConditions.urlContains("purchase.php"));
 
-        assertEquals("http://blazedemo.com/purchase.php", driver.getCurrentUrl());
+        assertEquals("http://blazedemo.com/purchase.php", getDriver().getCurrentUrl());
 
-        PuchasePage puchasePage = new PuchasePage(driver);
+        PuchasePage puchasePage = new PuchasePage(getDriver());
 
         assertEquals(puchasePage.getFlightNumberText(), "Flight Number: " + flightNum);
         assertEquals(puchasePage.getAirlineText(), "Airline: " + airline);
@@ -97,11 +97,11 @@ public class FirstTest extends BaseTest {
         //String now = formatter.format(date);
 
         //данный wait предназначен только для браузера Microsoft EDGE, который не дожидается загрузки страницы
-        wait.until(ExpectedConditions.urlContains("confirmation.php"));
+        getWait().until(ExpectedConditions.urlContains("confirmation.php"));
 
-        assertEquals("http://blazedemo.com/confirmation.php", driver.getCurrentUrl());
+        assertEquals("http://blazedemo.com/confirmation.php", getDriver().getCurrentUrl());
 
-        ConfirmationPage confirmationPage = new ConfirmationPage(driver);
+        ConfirmationPage confirmationPage = new ConfirmationPage(getDriver());
 
         // парсим дату полученную со страницы
         Date orderDate =  formatter.parse(confirmationPage.getOrderDateValue());

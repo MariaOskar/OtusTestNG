@@ -7,7 +7,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.FindBy;
 import ru.otus.BaseTest;
 
 import java.util.List;
@@ -29,16 +28,16 @@ public class ThirdTest extends BaseTest {
 
     @When("I focus on \"WOMEN\" button")
     public void i_focus_on_women_button(){
-        Actions actionBuilder = new Actions(driver);
+        Actions actionBuilder = new Actions(getDriver());
         actionBuilder
                 .moveToElement(getFirstButtonElement(),10,20)
                 .pause(PAUSE) // Firefox иногда не успевает применить стили ( в 50% случаев)
                 .build()
                 .perform();
         // MicroSoft EDGE при наведении на элемент не вызывает соответствующих событий onfocus
-        if(driver.getClass().getName().equals("org.openqa.selenium.edge.EdgeDriver")){
+        if(getDriver().getClass().getName().equals("org.openqa.selenium.edge.EdgeDriver")){
             // вызываем данное событие используя JavascriptExecutor
-            ((JavascriptExecutor)driver).executeScript("$('ul.sf-menu li:nth-of-type(1) a').focus();");
+            ((JavascriptExecutor) getDriver()).executeScript("$('ul.sf-menu li:nth-of-type(1) a').focus();");
         }
     }
 

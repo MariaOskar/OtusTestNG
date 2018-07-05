@@ -12,7 +12,7 @@ public class FirstTest extends BaseTest {
 
     @Test
     public void test() {
-        IndexPage page = new IndexPage(driver);
+        IndexPage page = new IndexPage(getDriver());
 
         Dimension buttonSize = page.getFirstButtonSize();
         page.focusOnFirstButton();

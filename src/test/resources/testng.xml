@@ -1,14 +1,12 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Otus" verbose="1" >
+<suite name="Otus" verbose="1" parallel="classes" thread-count="3">
     <test name="BlazeDemo">
         <classes>
             <class name="ru.otus.blazedemo.test.FirstTest"></class>
-        </classes>
-    </test>
-    <test name="maven_check">
-        <classes>
             <class name="ru.otus.blazedemo.test.SecondTest"></class>
+            <class name="ru.otus.automationpractice.test.FirstTest"></class>
+            <class name="ru.otus.automationpractice.test.SecondTest"></class>
         </classes>
     </test>
 </suite>

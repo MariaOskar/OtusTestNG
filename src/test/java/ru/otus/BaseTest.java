@@ -1,6 +1,5 @@
 package ru.otus;
 
-import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -12,42 +11,42 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import ru.otus.utils.PropertyHelper;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 abstract public class BaseTest {
     public static int implicitWaitTimeout = 10;
     public static int explicitWaitTimeout = 10;
-    public static WebDriver driver;
-    public static WebDriverWait wait;
+    public static ThreadLocal<WebDriver> driverContainer = new ThreadLocal<>();
+    public static ThreadLocal<WebDriverWait> waitContainer = new ThreadLocal<>();
     public static String seleniumGridUrl = PropertyHelper.getProperty("application.properties","selenium-grid-url");
 
     public static WebDriver createFirefoxDriver (){
-        driver = new FirefoxDriver();
-        return driver;
+        driverContainer.set(new FirefoxDriver());
+        return driverContainer.get();
     }
 
     public static WebDriver createRemoteChromeDriver(){
         try {
-            driver = new RemoteWebDriver(new URL(seleniumGridUrl), DesiredCapabilities.chrome());
+            driverContainer.set(new RemoteWebDriver(new URL(seleniumGridUrl), DesiredCapabilities.chrome()));
         } catch (MalformedURLException e) {
             throw new RuntimeException("Неправильно сформирован URL");
         }
-        return driver;
+        return driverContainer.get();
     }
 
     public static WebDriver createRemoteFirefoxDriver(){
         try {
-            driver = new RemoteWebDriver(new URL(seleniumGridUrl), DesiredCapabilities.firefox());
+            driverContainer.set(new RemoteWebDriver(new URL(seleniumGridUrl), DesiredCapabilities.firefox()));
         } catch (MalformedURLException e) {
             throw new RuntimeException("Неправильно сформирован URL");
         }
-        return driver;
+        return driverContainer.get();
     }
 
     public static WebDriver createChromeDriver(){
@@ -55,24 +54,24 @@ abstract public class BaseTest {
         if(System.getProperty("webdriver.chrome.headless")!=null && System.getProperty("webdriver.chrome.headless").equals("on")){
             options.addArguments("--headless");
         }
-        driver = new ChromeDriver(options);
-        return driver;
+        driverContainer.set(new ChromeDriver(options));
+        return driverContainer.get();
     }
 
     public static WebDriver createOperaDriver(){
         OperaOptions oo = new OperaOptions();
         oo.setBinary("C:\\Program Files\\Opera\\52.0.2871.40\\opera.exe");
-        driver = new OperaDriver(oo);
-        return driver;
+        driverContainer.set(new OperaDriver(oo));
+        return driverContainer.get();
     }
 
     public static WebDriver createEdgeDriver(){
-        driver = new EdgeDriver();
-        return driver;
+        driverContainer.set(new EdgeDriver());
+        return driverContainer.get();
     }
 
     public static WebDriver getDriver(){
-        if(driver == null){
+        if(driverContainer.get() == null){
             String value =  System.getProperty("webdriver");
             if (value == null) value = "chrome";
             switch (value){
@@ -98,10 +97,13 @@ abstract public class BaseTest {
                     createChromeDriver();
                     break;
             }
-            wait = new WebDriverWait(driver, explicitWaitTimeout);
-            driver.manage().timeouts().implicitlyWait(implicitWaitTimeout, TimeUnit.SECONDS);
+            waitContainer.set(new WebDriverWait(driverContainer.get(), explicitWaitTimeout));
+            driverContainer.get().manage().timeouts().implicitlyWait(implicitWaitTimeout, TimeUnit.SECONDS);
         }
-        return driver;
+        return driverContainer.get();
+    }
+    public static WebDriverWait getWait(){
+        return waitContainer.get();
     }
 
     @BeforeClass
@@ -111,6 +113,6 @@ abstract public class BaseTest {
 
     @AfterClass
     public void quit(){
-        driver.quit();
+        driverContainer.get().quit();
     }
 }

@@ -13,10 +13,10 @@ public class SecondTest extends BaseTest {
 
     @Test
     public void test() {
-        IndexPage page = new IndexPage(driver);
+        IndexPage page = new IndexPage(getDriver());
 
         page.focusOnFirstButton();
-        wait.until(ExpectedConditions.visibilityOf(page.getFirstCategoryLinkElement()));
+        getWait().until(ExpectedConditions.visibilityOf(page.getFirstCategoryLinkElement()));
         String categoryTitle = page.getFirstCategoryLinkText();
         CategoryPage categoryPage = page.clickOnFirstCategoryLinkElement();
         assertEquals(categoryPage.getCategoryTitle().trim(), categoryTitle.trim());
