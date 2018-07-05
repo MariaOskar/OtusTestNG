@@ -11,7 +11,7 @@
 
 
     <properties>
-        <webdriver>chrome</webdriver>
+        <webdriver>selenoid</webdriver>
         <webdriver.gecko.driver>libs\geckodriver.exe</webdriver.gecko.driver>
         <webdriver.opera.driver>libs\operadriver.exe</webdriver.opera.driver>
         <webdriver.chrome.headless>off</webdriver.chrome.headless>
@@ -33,7 +33,7 @@
                 </os>
             </activation>
             <properties>
-                <webdriver>chrome</webdriver>
+                <webdriver>selenoid</webdriver>
                 <webdriver.gecko.driver>libs\geckodriver.exe</webdriver.gecko.driver>
                 <webdriver.opera.driver>libs\operadriver.exe</webdriver.opera.driver>
                 <webdriver.chrome.driver>libs\chromedriver.exe</webdriver.chrome.driver>
@@ -50,7 +50,7 @@
                 </os>
             </activation>
             <properties>
-                <webdriver>chrome</webdriver>
+                <webdriver>selenoid</webdriver>
                 <webdriver.gecko.driver>libs/geckodriver</webdriver.gecko.driver>
                 <webdriver.opera.driver>libs/operadriver</webdriver.opera.driver>
                 <webdriver.chrome.driver>libs/chromedriver</webdriver.chrome.driver>
@@ -66,7 +66,7 @@
                 </os>
             </activation>
             <properties>
-                <webdriver>chrome</webdriver>
+                <webdriver>selenoid</webdriver>
                 <webdriver.gecko.driver>libs/geckodriver</webdriver.gecko.driver>
                 <webdriver.opera.driver>libs/operadriver</webdriver.opera.driver>
                 <webdriver.chrome.driver>libs/chromedriver</webdriver.chrome.driver>

@@ -16,6 +16,7 @@ import org.testng.annotations.BeforeClass;
 import ru.otus.utils.PropertyHelper;
 
 import java.net.MalformedURLException;
+import java.net.URI;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
@@ -28,6 +29,22 @@ abstract public class BaseTest {
 
     public static WebDriver createFirefoxDriver (){
         driverContainer.set(new FirefoxDriver());
+        return driverContainer.get();
+    }
+
+    public static WebDriver createRemoteSelenoidDriver(){
+        try {
+            DesiredCapabilities capabilities = new DesiredCapabilities();
+            capabilities.setBrowserName( PropertyHelper.getProperty("application.properties", "selenoid.browser.name") );
+            capabilities.setVersion( PropertyHelper.getProperty("application.properties", "selenoid.browser.version") );
+            capabilities.setCapability("enableVNC",true);
+            driverContainer.set(new RemoteWebDriver(
+                    URI.create(PropertyHelper.getProperty("application.properties", "selenoid.uri")).toURL(),
+                    capabilities
+            ));
+        } catch (MalformedURLException e) {
+            throw new RuntimeException("Неправильно сформирован URL");
+        }
         return driverContainer.get();
     }
 
@@ -72,9 +89,12 @@ abstract public class BaseTest {
 
     public static WebDriver getDriver(){
         if(driverContainer.get() == null){
-            String value =  System.getProperty("webdriver");
+            String value =  PropertyHelper.getProperty("application.properties","webdriver");
             if (value == null) value = "chrome";
             switch (value){
+                case "selenoid":
+                    createRemoteSelenoidDriver();
+                    break;
                 case "remote-chrome":
                     createRemoteChromeDriver();
                     break;
@@ -114,5 +134,6 @@ abstract public class BaseTest {
     @AfterClass
     public void quit(){
         driverContainer.get().quit();
+        driverContainer.set(null);
     }
 }
