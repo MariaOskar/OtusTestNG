@@ -7,6 +7,8 @@
             <class name="ru.otus.blazedemo.test.SecondTest"></class>
             <class name="ru.otus.automationpractice.test.FirstTest"></class>
             <class name="ru.otus.automationpractice.test.SecondTest"></class>
+            <class name="ru.otus.dummy.test.DummyTest"></class>
+            <class name="ru.otus.dummy.test.DummyTest2"></class>
         </classes>
     </test>
 </suite>
